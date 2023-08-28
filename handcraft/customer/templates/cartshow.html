@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    
+  </head>
+  <body>
+
+  
+  
+      <nav class="navbar navbar-expand-lg navbar-light " style="background-color: black;">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#" style="color: rgb(128, 208, 243);"><b>Craftopia</b></a>
+  
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0" >
+
+        <li class="nav-item active" style="margin-left: 1200px;">
+          <a class="nav-link" href="{% url 'home' %}" style="color: rgb(255, 255, 255);" >Home <span class="sr-only">(current)</span></a>
+        </li>
+
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'cartshow' %}" style="color: rgb(255, 255, 255);">Cart <span class="sr-only"></span></a>
+        </li>
+     
+        <li class="nav-item active">
+          <a class="nav-link " href="{% url 'edit_profile' %}" style="color: rgb(255, 255, 255);" >Profile</a>
+        </li>
+        
+      </ul>
+
+    </div>
+  </nav>
+  
+  
+
+
+
+<style>
+   .btn a {
+     text-decoration: none;
+     color: antiquewhite;
+   }
+ </style>
+<div class="row" style="margin-left: 20px;">
+   {% for i in cartitem.item %}
+   <div class="card ml-5 p-5"
+     style="width: 20rem;margin-left: 41px; border-radius: 20px; margin-top: 50px;">
+     <img src="{{i.craft.picture.url}}" class="card-img-top" alt="hi hello"
+       style="width: 150px;  height: 150px;margin-left: 35px;">
+     <div class="card-body" style="border-radius: 20px;">
+       <h5 class="card-title"> {{i.cart.name}}</h5>
+ 
+     </div >
+     <ul class="list-group list-group-flush">
+       <li class="list-group-item"style="background: rgb(2,0,36);background: linear-gradient(90deg, rgb(224, 224, 230) 0%, rgb(227, 228, 231) 9%, rgb(231, 227, 231) 26%, rgb(227, 227, 233) 61%, rgb(232, 236, 237) 100%);">₹ {{i.Books.price}}</li>
+     </ul><br>
+   
+     <button class="btn btn-danger" style="margin-right: 20px;"><a href="{% url 'delcart' id=i.id %}">delete</a></button><br>
+     <button class="btn btn-primary" style="width: 202px;"><a href="{% url 'ckout' cid=i.id %}">place order</a></button>
+  
+
+
+
+
+
+   </div>
+   {%endfor%}
+ </div>
+    
+
+</body>
+</html>

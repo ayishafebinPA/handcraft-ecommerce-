@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    
+    <style>
+      p,h3,hr{
+         color: black;
+      }
+   </style>
+
+  </head>
+  <body>
+
+  
+  
+      <nav class="navbar navbar-expand-lg navbar-light " style="background-color: black;">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#" style="color: rgb(128, 208, 243);"><b>Craftopia</b></a>
+  
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0" >
+
+        <li class="nav-item active" style="margin-left: 1200px;">
+          <a class="nav-link" href="{% url 'home' %}" style="color: rgb(255, 255, 255);" >Home <span class="sr-only">(current)</span></a>
+        </li>
+
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'cartshow' %}" style="color: rgb(255, 255, 255);">Cart <span class="sr-only"></span></a>
+        </li>
+     
+        <li class="nav-item active">
+          <a class="nav-link " href="{% url 'edit_profile' %}" style="color: rgb(255, 255, 255);" >Profile</a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+  </nav>
+  
+
+     
+
+
+    <div style="margin-top: 100px;margin-left: 20%;">
+        <div style="top: 20px;">
+              
+        <form method="POST" >
+           {% csrf_token %}
+           {{ form.as_p }}
+           <hr style="width: 750px;">
+           <h3>Change Password</h3>
+           {{ password_form.as_p }}
+           <button type="submit">Save</button>
+        </form>
+        </div>
+       </div>
+</body>
+</html>
